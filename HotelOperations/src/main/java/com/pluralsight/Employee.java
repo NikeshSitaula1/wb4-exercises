@@ -6,9 +6,9 @@ public class Employee {
     private String name;
     private String department;
     private double payRate;
-    private double hoursWorked;
+    private float hoursWorked;
 
-    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked){
+    public Employee(int employeeId, String name, String department, double payRate, float hoursWorked){
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
@@ -32,28 +32,28 @@ public class Employee {
         return payRate;
     }
 
-    public double getHoursWorked(){
+    public float getHoursWorked(){
         return hoursWorked;
     }
 
+
+
     public double getRegularHours(){
-        double regularHours = 0;
-        if (this.hoursWorked <= 40 && this.hoursWorked > 0){
-            regularHours =  this.payRate * this.hoursWorked;
-        }
-
-        return regularHours;
+        return (hoursWorked > 40) ? 40 : hoursWorked;
     }
 
-    public double getOvertimeHours() throws Exception{
-        double overtimeHours = 0;
-        if (this.hoursWorked > 40){
-            overtimeHours = (this.payRate * 1.5) * (this.hoursWorked - 40);
-        }
-        return overtimeHours;
+    public double getTotalPay() {
+        double regularPay = getRegularHours() * payRate;
+        double overtimePay = getOvertimeHours() * payRate * 1.5;
+        return regularPay + overtimePay;
     }
 
-    public double getTotalPay() throws Exception{
-        return this.getRegularHours() + this.getOvertimeHours();
+    public double getOvertimeHours() {
+        return (hoursWorked > 40) ? hoursWorked - 40 : 0;
     }
+
+
+
+    //-----------------------------------------------------------------------------
+
 }
