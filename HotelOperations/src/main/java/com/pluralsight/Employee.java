@@ -38,7 +38,7 @@ public class Employee {
 
     public double getRegularHours(){
         double regularHours = 0;
-        if (this.hoursWorked <= 40){
+        if (this.hoursWorked <= 40 && this.hoursWorked > 0){
             regularHours =  this.payRate * this.hoursWorked;
         }
 
