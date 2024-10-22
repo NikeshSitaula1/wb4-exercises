@@ -45,7 +45,7 @@ public class Employee {
         return regularHours;
     }
 
-    public double getOvertimeHours(){
+    public double getOvertimeHours() throws Exception{
         double overtimeHours = 0;
         if (this.hoursWorked > 40){
             overtimeHours = (this.payRate * 1.5) * (this.hoursWorked - 40);
@@ -53,7 +53,7 @@ public class Employee {
         return overtimeHours;
     }
 
-    public double getTotalPay(){
+    public double getTotalPay() throws Exception{
         return this.getRegularHours() + this.getOvertimeHours();
     }
 }
