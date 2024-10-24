@@ -37,7 +37,6 @@ public class Employee {
     }
 
 
-
     public double getRegularHours(){
         return (hoursWorked > 40) ? 40 : hoursWorked;
     }
@@ -53,7 +52,12 @@ public class Employee {
     }
 
 
+    public void punchIn(double time){
+        System.out.println(name + "punched in at " + time);
+    }
 
-    //-----------------------------------------------------------------------------
-
+    public void punchOut(double time){
+        hoursWorked += (float) time;
+        System.out.println(hoursWorked);
+    }
 }

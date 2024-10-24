@@ -55,10 +55,11 @@ public class Reservation {
     public double getReservationTotal() throws Exception {
 
         if(this.isWeekend()){
-            return (((this.getPrice()*0.10) + this.getPrice()) * this.getNumberOfNights());
+            return (((this.getPrice() * 0.10) + this.getPrice()) * this.getNumberOfNights());
 
         }else{
             return this.getPrice() * this.getNumberOfNights();
         }
     }
+
 }
